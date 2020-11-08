@@ -4,7 +4,6 @@
     <van-nav-bar
       title="视频"
       left-text="返回"
-      right-text="用户"
       left-arrow
       @click-left="onClickLeft"
       class="mv_header"
@@ -119,42 +118,52 @@
       //获取标题文本
       this.getTitle();
       //把底部导航取消
-      
 
-},
-    mounted() {
 
-},
-beforeCreate() {}, //生命周期 - 创建之前
-beforeMount() {}, //生命周期 - 挂载之前
-beforeUpdate() {}, //生命周期 - 更新之前
-updated() {}, //生命周期 - 更新之后
-beforeDestroy() {}, //生命周期 - 销毁之前
-destroyed() {}, //生命周期 - 销毁完成
-activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
-  }
+  },
+  mounted() {
+
+  },
+  beforeCreate() {}, //生命周期 - 创建之前
+  beforeMount() {}, //生命周期 - 挂载之前
+  beforeUpdate() {}, //生命周期 - 更新之前
+  updated() {}, //生命周期 - 更新之后
+  beforeDestroy() {}, //生命周期 - 销毁之前
+  destroyed() {}, //生命周期 - 销毁完成
+  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+}
 </script>
 
 <style lang='scss' scoped>
 .video{
   width: 100%;
-  font-size: 1rem;
 }
 
-
-
 video{
-  width: 100%;
+  width: 7.5rem;
 }
 .title{
   width: 100%;
+  h3{
+    font-size: .4rem;
+    margin-left:.4rem;
+    line-height: .6rem;
+  }
   div{
     width: 100%;
     .playImg{
-      width: 8rem;
-      height: 4rem;
-      // border-radius: 50%;
+      width: 3rem;
+      margin-left: .2rem;
     }
+    span{
+      font-size: .3rem;
+      margin-left:.2rem ;
+    }
+  }
+  h2{
+    font-size:.3rem;
+    margin-left: .4rem;
+    line-height: .4rem;
   }
 }
 //评论区域
@@ -163,15 +172,23 @@ video{
   overflow-y: auto;
   li{
     width: 100%;
-    padding:.4rem 1rem;
+    padding:.2rem .3rem;
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;
     div{
+      font-size: 0;
         img{
-          width:2rem;
-          height: 2rem;
+          width:1rem;
+          height: 1rem;
+          vertical-align: bottom;
           border-radius: 100%;
       }
+      span{
+        font-size: .3rem;
+      }
+    }
+    p{
+      font-size: .35rem;
     }
   }
 }

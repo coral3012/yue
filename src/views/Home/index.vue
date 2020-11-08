@@ -15,7 +15,7 @@
       <router-link
         tag="li"
         :to="{name:'MyStyle'}"
-      >个性装扮</router-link>
+      >个性页</router-link>
       <router-link
         tag="li"
         :to="{name:'ListenList'}"
@@ -37,7 +37,6 @@
 
 <script>
   export default {
-    name:"home",
     components: {
 
     },
@@ -81,7 +80,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 .homeHeader{
   background: #f20c00;
-  padding: .3rem;
+  padding: .05rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -89,7 +88,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
-  line-height: 2.8rem;
+  line-height: .6rem;
   box-sizing: border-box;
   li{
       box-sizing: border-box;

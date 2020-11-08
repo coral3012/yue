@@ -6,7 +6,7 @@
       alt=""
       class="logow"
     >
-    <van-form @submit="onSubmit">
+    <van-form class="lll" @submit="onSubmit">
       <van-field
         v-model="username"
         name="账号"
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { setToken } from "../utils/tools";
+import { setToken,saveCookie } from "../utils/tools";
 
 import { Notify } from 'vant';
   export default {
@@ -62,40 +62,44 @@ import { Notify } from 'vant';
 
     },
     methods: {
-    onSubmit(values) {
-          this.$axios.post(`http://localhost:3000/login/cellphone?phone=${values['账号']}&password=${values["密码"]}`).then(res=>{
-            if(res.status == 200){
-              console.log(res);
-              if(res.data.msg){
+      onSubmit(values) {
+        this.$axios.post(`http://localhost:3000/login/cellphone?phone=${values['账号']}&password=${values["密码"]}`).then(res=>{
+          if(res.status == 200){
+            console.log(res);
+            if(res.data.msg){
 
-               Notify({ type: 'warning', message: res.data.msg });
-                  return false;
-              }
-              setToken(res.data.token)
-              /* this.$axios.post("http://localhost:3000/login/refresh").then(res=>{
-                console.log(res);
-              }) */
-              this.$router.push({name:"MyStyle"})
+              Notify({ type: 'warning', message: res.data.msg });
+                return false;
             }
-          })
-        },
-        Reg(){
-          this.$router.push({name:"Reg"})
-        }
+            setToken(res.data.token);
+            saveCookie("userid",res.data.account.id,15);
+            saveCookie("photo",res.data.profile.avatarUrl,15)
+            saveCookie("username",res.data.profile.nickname,15);
+            saveCookie("MUSIC_U", res.data.token,15);
+            /* this.$axios.post("http://localhost:3000/login/refresh").then(res=>{
+              console.log(res);
+            }) */
+            this.$router.push({name:"MyStyle"})
+          }
+        })
+      },
+      Reg(){
+        this.$router.push({name:"Reg"})
+      }
     },
     created() {
       this.$eventBus.$emit("maile");
-},
+  },
     mounted() {
 
-},
-beforeCreate() {}, //生命周期 - 创建之前
-beforeMount() {}, //生命周期 - 挂载之前
-beforeUpdate() {}, //生命周期 - 更新之前
-updated() {}, //生命周期 - 更新之后
-beforeDestroy() {}, //生命周期 - 销毁之前
-destroyed() {}, //生命周期 - 销毁完成
-activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+  },
+  beforeCreate() {}, //生命周期 - 创建之前
+  beforeMount() {}, //生命周期 - 挂载之前
+  beforeUpdate() {}, //生命周期 - 更新之前
+  updated() {}, //生命周期 - 更新之后
+  beforeDestroy() {}, //生命周期 - 销毁之前
+  destroyed() {}, //生命周期 - 销毁完成
+  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   }
 </script>
 
@@ -103,21 +107,27 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 .loginIn{
   width: 100%;
   height: 100%;
-  background: url("../assets/loginImg.jpg");
+  background: skyblue;
+  // background: url("../assets/loginImg.jpg");
   display: flex;
+
   flex-direction: column;
   justify-content: center;
+  .lll{
+    width:6.9rem;
+    margin: 0 .3rem;
+  }
   .logow{
     display: block;
-    width: 8rem;
+    width: 3rem;
     margin: 0 auto 1.2rem;
     border-radius: 50%;
   }
   .reg{
-    color: aqua;
+    color: purple;
     font-size: .12rem;
-    margin:  .12rem;
-    float: right;    
+    margin:.3rem;
+    float: right;
 }
 }
 </style>

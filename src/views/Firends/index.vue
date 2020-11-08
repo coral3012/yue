@@ -1,7 +1,7 @@
 <!-- 组件说明 -->
 <template>
   <div class='firends'>
-    <van-nav-bar title="广场" />
+    <van-nav-bar title="MV" />
     <ul class="firends_content">
       <li
         v-for="item in list"
@@ -53,10 +53,10 @@
     },
     methods: {
       saveData(){
-        this.$axios.post("http://localhost:3000/mv/all?area").then(res=>{
+        this.$axios.post("http://localhost:3000/mv/all").then(res=>{
         if(res.data.code ==200){
           this.list = res.data.data
-        
+
         }
       })
       },
@@ -92,7 +92,7 @@
         },700)
       /* } */
     }
-   
+
 
     document.querySelector('.firends_content').onscroll = (e)=>{
       timeOut(e)
@@ -112,29 +112,39 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 <style lang='scss' scoped>
 .van-nav-bar{
   // border-bottom: 1px solid #ccc;
+  height: .8rem;
+  // margin-bottom: .2rem;
+  font-size:.5rem;
+  flex-shrink: 0;
+  background: #f36838;
   box-shadow: 0 0 10px #ccc;
 }
 .firends{
-  font-size: 1rem;
+  // font-size: 1rem;
   display: flex;
   flex-direction: column;
 }
 
-
+.firends_content li:nth-child(odd){
+  margin:0.2rem .1rem 0 .15rem;
+}
+.firends_content li:nth-child(even){
+  margin:0.2rem .15rem 0 .1rem;
+}
 .firends_content{
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:center;
   background: #e9f1f6;
   width: 100%;
   li{
     align-self: start;
     display: flex;
     flex-direction: column;
-    width: 46%;
-    padding: .2rem;
-    margin:.2rem .44rem;
+    width: 3.5rem;
+    // padding: .2rem;
+    // margin:.2rem .4rem;
     box-sizing: border-box;
     background: white;
     border-radius: .3rem;
@@ -144,25 +154,27 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
       img{
         border-radius: .2rem;
         width: 100%;
+        height:100%;
       }
     }
     dd{
       margin-inline-start:0px;
-        font-size: .8rem;
+        font-size: .3rem;
     }
     p{
       display: flex;
+      margin:.3rem 0 .3rem!important;
       justify-content: space-between;
       span{
-        flex: 1;
+        flex:1;
       }
-       i{
+      i{
         display: flex;
-         font-size: .4rem;
+         font-size: .3rem;
       }
       em{
          display: flex;
-        font-size: .6rem;
+        font-size: .3rem;
       }
     }
   }

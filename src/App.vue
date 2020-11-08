@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <keep-alive exclude="Detail">
-      <router-view class="otherBottom" />
+    <keep-alive exclude="Logout,PM,Tui,Detail,Xiang,Gdan,Gdet,PlayM,Mine">
+    <router-view class="content" />
     </keep-alive>
     <van-tabbar
       :fixed="false"
@@ -26,7 +26,7 @@
       </van-tabbar-item>
       <van-tabbar-item :to="{name:'Firends'}">
         <i class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></i>
-        <span>朋友</span>
+        <span>MV</span>
       </van-tabbar-item>
       <van-tabbar-item :to="{name:'Mine'}">
         <i class="iconfont icon-my-fill">
@@ -49,7 +49,7 @@ export default {
     }
   },
   created(){
-    console.log(this.$route);
+    // console.log(this.$route);
     this.$eventBus.$on("maile",this.saveHnadle);
     this.$eventBus.$on("maile1",this.saveHnadle1);
   },
@@ -68,20 +68,30 @@ export default {
 </script>>
 <style>
 @import '../public/css/font-awesome.min.css';
-html,body,#app{
-  height: 100%;
-  width: 100%;
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
- #app {
-    display: flex;
-    font-size: 26.67vw;
-    flex-direction: column;
+html {
+  font-size: 13.3333333333333333vw;
+  /* 1vw = 3.75px
+       26.666667vw / 2 = 13.333333vw
+    */
 }
-.otherBottom{
-  border-top: 1px solid #ccc;
+#app {
+  display: flex;
+  font-size: 13.3333333333333333vw;
+  flex-direction: column;
+}
+.content {
   flex: 1;
   overflow-y: auto;
 }
+
 .bot{
   /* bottom: -0.04rem!important; */
   bottom: -2px;

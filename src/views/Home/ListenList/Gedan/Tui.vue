@@ -4,14 +4,14 @@
       v-for="item in list"
       :key="item.id"
       class="ll"
-      :to="{ name: 'PM', params: { id: item.mainSong.id } }"
+      :to="{ name: 'Gdet', params: { id: item.id } }"
     >
       <li>
         <dd>
-          <img :src="item.coverUrl" alt="" />
+          <img :src="item.coverImgUrl" alt="" />
         </dd>
         <dt>
-          {{ item.mainSong.name }}
+          {{ item.name }}
         </dt>
       </li>
     </router-link>
@@ -20,28 +20,27 @@
 
 <script>
 export default {
-  name: "Xiang",
   components: {},
   props: {},
   data() {
     return {
-      list: [],
-      cat: "",
+      id: "",
+      list:[],
     };
   },
   watch: {},
   computed: {},
   methods: {},
   created() {
-    this.$axios.get("http://localhost:3000/program/recommend").then((res) => {
-      // console.log(res);
-      this.list = res.data.programs.splice(0, 9);
-      console.log(this.list);
-    });
+    this.$axios
+      .get("http://localhost:3000/top/playlist/highquality?cat=华语")
+      .then((res) => {
+        // console.log(res);
+        this.list=res.data.playlists;
+        // console.log(this.list)
+      });
   },
-  mounted() {
-    // this.$router.go(0)
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
@@ -70,10 +69,6 @@ export default {
       padding: 0.05rem;
       font-size: 0.2rem;
       font-family: 楷体;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
     }
   }
 }

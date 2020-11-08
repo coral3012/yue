@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="referrer" content="no-referrer" />
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <style>
@@ -15,7 +15,14 @@
     font-size: 26.67vw;
   } */
   #waifu{
-    transform: translate(-60px,-30px) scale(.6)!important;
+    transform: translate(-60px,0px) scale(.6)!important;
+  }
+  #waifu-tool span{
+    color:red;
+    transform:scale(.3);
+  }
+  #waifu-tool span:nth-child(1),#waifu-tool span:nth-child(2),#waifu-tool span:nth-child(4),#waifu-tool span:nth-child(5),#waifu-tool span:nth-child(6){
+    display:none;
   }
 </style>
 

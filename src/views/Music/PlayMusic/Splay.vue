@@ -6,9 +6,9 @@
       <li class="pic">
           <img :src="list.picUrl | pics" alt="" />
           <!-- 在这里改 -->
-          <p>{{ $route.query.name }}</p>
+          <p>{{ $route.query.gname }}</p>
       </li>
-      <li class="description" >
+      <li class="description">
         {{ $route.query.cname }}
       </li>
     </ul>
@@ -34,17 +34,17 @@
 </template>
 
 <script>
+// import Vue from "vue";
+
 export default {
-  name: "PlayM",
+  name: "Splay",
   components: {},
   data() {
     return {
-      id: null,
-      list: [],
-      zuo:"",
-      name:"",
+      id1: 1,
       musciUrl: [],
       show:true,
+      list:[],
     };
   },
   computed: {},
@@ -60,44 +60,24 @@ export default {
     this.$eventBus.$emit("maile");
     //给个判断有paramsid的话就不执行点播了  这里是搜索的歌曲
     this.id1 = this.$route.query.id;
-    // console.log(this.id1)
-    // this.$axios.get(`http://music.163.com/api/song/detail/?id=${this.id1}&ids=%5B${this.id1}%5D&timestap=${Math.random()}`)
-    //         .then(res => {
-    //           const zuozhe = res.data.songs[0].artists.map((ref) => ref.name).join("/");
-    //           // console.log({name:res.data.songs[0].name,zuo:zuozhe})
-    //           this.name=res.data.songs[0].name;
-    //           this.zuo=zuozhe;
-    //         })
+
     this.$axios
-      .get(`http://localhost:3000/song/url?id=${this.id1}`).then((res) => {
+      .get(`http://localhost:3000/song/url?id=${this.id1}`)
+      .then((res) => {
         //音乐确实获取到了
-        // console.log(res);
+        console.log(res);
         this.musciUrl = res.data.data[0].url;
         if(this.musciUrl==null){
-          // this.show=false;
+          this.show=false;
         }
-      })
-    //直接结束避免报错 资源浪费
+      });
   },
-  filters:{
+  filters: {
     pics(v) {
       if (v) {
         return v;
       }
-
       return "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604470784317&di=d6a1d5ce6ada96c3ff8ba4fae87da818&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201111%2F12%2F20111112151919_Whjz4.gif";
-    },
-    msg(v) {
-      if (v) {
-        return v;
-      }
-      return  ;
-    },
-    namess(v) {
-      if (v) {
-        return v;
-      }
-      return  ;
     },
   },
   mounted() {},
@@ -108,7 +88,7 @@ export default {
   beforeDestroy() {}, //生命周期 - 销毁之前
   destroyed() {}, //生命周期 - 销毁完成
   activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
-}
+};
 </script>
 
 <style lang="scss" scoped>
