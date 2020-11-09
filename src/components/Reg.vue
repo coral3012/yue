@@ -101,7 +101,7 @@ export default {
     sendReg() {
       //账号名字textName 手机号 mobel  账号userName
       //短信getMessage  密码1  password1 密码2  password2
-      if (this.password1 && this.mobel && this.textName && this.getMessage) {
+      if (this.password1 && this.mobel  && this.getMessage) {
         if (this.password1 === this.password2) {
           var res = this.verify();
           if (res) {
