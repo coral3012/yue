@@ -38,7 +38,6 @@
   </div>
 </template>
 <script>
-import "../public/css/autoload"
 /* const $eventBus = new Vue(); // 定义一个全局的vue实例
 Vue.prototype.$eventBus = $eventBus; // 在vue对象的原型上进行赋值 */
 export default {
@@ -67,7 +66,6 @@ export default {
 }
 </script>>
 <style>
-@import '../public/css/font-awesome.min.css';
 html,
 body,
 #app {
