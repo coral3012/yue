@@ -53,7 +53,7 @@
     },
     methods: {
       saveData(){
-        this.$axios.post("http://localhost:3000/mv/all").then(res=>{
+        this.$axios.post("http://81.69.58.73:3000/mv/all").then(res=>{
         if(res.data.code ==200){
           this.list = res.data.data
 

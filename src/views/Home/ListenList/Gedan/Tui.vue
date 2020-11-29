@@ -33,7 +33,7 @@ export default {
   methods: {},
   created() {
     this.$axios
-      .get("http://localhost:3000/top/playlist/highquality?cat=华语")
+      .get("http://81.69.58.73:3000/top/playlist/highquality?cat=华语")
       .then((res) => {
         // console.log(res);
         this.list=res.data.playlists;

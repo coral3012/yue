@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <keep-alive exclude="Logout,PM,Tui,Detail,Xiang,Gdan,Gdet,PlayM,Mine">
+    <keep-alive exclude="Logout,PM,Gdan/Tui,Detail,Xiang,Gdan,Gdet,PlayM,Mine">
     <router-view class="content" />
     </keep-alive>
     <van-tabbar

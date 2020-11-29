@@ -26,7 +26,7 @@ export default {
   created(){
     // this.lists.map(item=>{
     //   this.$axios
-    //   .get(`http://localhost:3000/top/playlist/highquality?cat=${item}`)
+    //   .get(`http://81.69.58.73:3000/top/playlist/highquality?cat=${item}`)
     //   .then((res) => {
     //     this.list=res.data.playlists;
     //   });

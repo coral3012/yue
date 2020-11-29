@@ -63,7 +63,7 @@ import { Notify } from 'vant';
     },
     methods: {
       onSubmit(values) {
-        this.$axios.post(`http://localhost:3000/login/cellphone?phone=${values['账号']}&password=${values["密码"]}`).then(res=>{
+        this.$axios.post(`http://81.69.58.73:3000/login/cellphone?phone=${values['账号']}&password=${values["密码"]}`).then(res=>{
           if(res.status == 200){
             console.log(res);
             if(res.data.msg){
@@ -76,7 +76,7 @@ import { Notify } from 'vant';
             saveCookie("photo",res.data.profile.avatarUrl,15)
             saveCookie("username",res.data.profile.nickname,15);
             saveCookie("MUSIC_U", res.data.token,15);
-            /* this.$axios.post("http://localhost:3000/login/refresh").then(res=>{
+            /* this.$axios.post("http://81.69.58.73:3000/login/refresh").then(res=>{
               console.log(res);
             }) */
             this.$router.push({name:"MyStyle"})

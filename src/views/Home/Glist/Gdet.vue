@@ -111,7 +111,7 @@ export default {
     this.$eventBus.$emit("maile1");
     this.id = this.$route.params.id;
     this.$axios
-      .get(`http://localhost:3000/playlist/detail?id=${this.id}`)
+      .get(`http://81.69.58.73:3000/playlist/detail?id=${this.id}`)
       .then((res) => {
         // console.log(res);
         if (res.data.code == 200) {

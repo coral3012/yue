@@ -109,7 +109,7 @@ export default {
               console.log(44);
               this.$axios
                 .post(
-                  `http://localhost:3000/register/cellphone?phone=${this.mobel}&password=${this.password1}&captcha=${this.getMessage}&nickname=${this.textName}`
+                  `http://81.69.58.73:3000/register/cellphone?phone=${this.mobel}&password=${this.password1}&captcha=${this.getMessage}&nickname=${this.textName}`
                 )
                 .then((res) => {
                   if (res.status == 200) {
@@ -135,7 +135,7 @@ export default {
 
       this.$axios
         .post(
-          `http://localhost:3000/captcha/verify?phone=${this.mobel}&captcha=${this.getMessage}`
+          `http://81.69.58.73:3000/captcha/verify?phone=${this.mobel}&captcha=${this.getMessage}`
         )
         .then((res) => {
           console.log(res);
@@ -154,7 +154,7 @@ export default {
       //请求链接
       if (this.mobel) {
         this.$axios
-          .post(`http://localhost:3000/captcha/sent?phone=${this.mobel}`)
+          .post(`http://81.69.58.73:3000/captcha/sent?phone=${this.mobel}`)
           .then((res) => {
             console.log(res);
             Notify({ type: "primary", message: "请查收您的短信" });

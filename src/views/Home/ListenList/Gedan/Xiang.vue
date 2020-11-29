@@ -35,7 +35,7 @@ export default {
   created() {
     this.cat=this.$route.query.cat;
     this.$axios
-      .get(`http://localhost:3000/top/playlist/highquality?cat=${this.cat}`)
+      .get(`http://81.69.58.73:3000/top/playlist/highquality?cat=${this.cat}`)
       .then((res) => {
         // console.log(res);
         this.list=res.data.playlists;

@@ -97,7 +97,7 @@ export default {
       //
     },
     onLoadMusic() {
-      this.$axios.post("http://localhost:3000/top/album").then((res) => {
+      this.$axios.post("http://81.69.58.73:3000/top/album").then((res) => {
         console.log(res);
         if (res.data.code == 200) {
           this.list = res.data.monthData;

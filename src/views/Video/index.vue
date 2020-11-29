@@ -89,11 +89,11 @@
         this.$eventBus.$emit("maile1")
       },
       getTitle(){
-        this.$axios.post(`http://localhost:3000/mv/detail?mvid=${this.id}`).then(res=>{
+        this.$axios.post(`http://81.69.58.73:3000/mv/detail?mvid=${this.id}`).then(res=>{
           if(res.data.code == 200){
             this.title = res.data.data
             this.commentID = res.data.data.commentThreadId;
-            this.$axios.post(`http://localhost:3000/comment/mv?id=${this.id}`).then(res=>{
+            this.$axios.post(`http://81.69.58.73:3000/comment/mv?id=${this.id}`).then(res=>{
               if(res.data.code===200){
                 this.commentData = res.data.comments
               }
@@ -102,7 +102,7 @@
         })
       },
       getMv(){
-        this.$axios.post(`http://localhost:3000/mv/url?id=${this.id}`).then(res=>{
+        this.$axios.post(`http://81.69.58.73:3000/mv/url?id=${this.id}`).then(res=>{
           if(res.data.code == 200){
             this.data = res.data.data
           }

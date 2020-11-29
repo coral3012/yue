@@ -31,7 +31,7 @@ export default {
   watch: {},
   methods: {},
   created() {
-    this.$axios.get("http://localhost:3000/toplist").then(res=>{
+    this.$axios.get("http://81.69.58.73:3000/toplist").then(res=>{
       this.list=res.data.list;
     })
   },

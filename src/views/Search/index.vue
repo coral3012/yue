@@ -53,7 +53,7 @@ export default {
       this.$router.push({ name: "MyStyle" });
     },
     getHot() {
-      this.$axios.post("http://localhost:3000/search/hot").then((res) => {
+      this.$axios.post("http://81.69.58.73:3000/search/hot").then((res) => {
         if (res.data.code === 200) {
           this.hot = res.data.result.hots;
         }
@@ -65,7 +65,7 @@ export default {
     },
     onSearch() {
       this.$axios
-        .post(`http://localhost:3000/search?keywords=${this.value}`)
+        .post(`http://81.69.58.73:3000/search?keywords=${this.value}`)
         .then((res) => {
           if (res.data.code === 200) {
             this.words = res.data.result.songs;

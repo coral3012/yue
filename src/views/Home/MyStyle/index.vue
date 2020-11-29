@@ -161,7 +161,7 @@ export default {
       // console.log(this.cookie)
       this.$axios
         .post(
-          `http://localhost:3000/playlist/detail?id=5113986747`
+          `http://81.69.58.73:3000/playlist/detail?id=5113986747`
         )
         .then((res) => {
           // console.log(1111111,res);
@@ -182,7 +182,7 @@ export default {
         });
         this.$axios
           .post(
-            `http://localhost:3000/playlist/detail?id=944778002`
+            `http://81.69.58.73:3000/playlist/detail?id=944778002`
           )
           .then((res) => {
             // console.log(1111111,res);
@@ -203,7 +203,7 @@ export default {
           });
 
 
-      this.$axios.get("http://localhost:3000/banner").then((res) => {
+      this.$axios.get("http://81.69.58.73:3000/banner").then((res) => {
         // console.log(res)
         const ban = res.data.banners.map((ite) => {
           return {
@@ -220,7 +220,7 @@ export default {
   created() {
     var times = Date.now();
     this.$axios
-        .get(`http://localhost:3000/top/playlist/highquality?timest=${times}`)
+        .get(`http://81.69.58.73:3000/top/playlist/highquality?timest=${times}`)
         .then((res) => {
           // console.log(res);
           if (res.status == 200) {
@@ -235,7 +235,7 @@ export default {
         });
       // console.log(times);
       this.$axios
-        .get(`http://localhost:3000/top/playlist?timest=${times}`)
+        .get(`http://81.69.58.73:3000/top/playlist?timest=${times}`)
         .then((res) => {
           // console.log(res);
           if (res.status == 200) {

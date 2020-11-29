@@ -33,7 +33,7 @@ export default {
   computed: {},
   methods: {},
   created() {
-    this.$axios.get("http://localhost:3000/program/recommend").then((res) => {
+    this.$axios.get("http://81.69.58.73:3000/program/recommend").then((res) => {
       // console.log(res);
       this.list = res.data.programs.splice(0, 9);
       console.log(this.list);

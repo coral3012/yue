@@ -69,7 +69,7 @@ export default {
     //           this.zuo=zuozhe;
     //         })
     this.$axios
-      .get(`http://localhost:3000/song/url?id=${this.id1}`).then((res) => {
+      .get(`http://81.69.58.73:3000/song/url?id=${this.id1}`).then((res) => {
         //音乐确实获取到了
         // console.log(res);
         this.musciUrl = res.data.data[0].url;

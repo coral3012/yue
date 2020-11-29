@@ -38,7 +38,7 @@ export default {
     var times = Date.now();
     console.log(times);
     this.$axios
-      .get(`http://localhost:3000/top/playlist?timest=${times}`)
+      .get(`http://81.69.58.73:3000/top/playlist?timest=${times}`)
       .then((res) => {
         console.log(res);
         if (res.status == 200) {

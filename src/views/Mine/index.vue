@@ -107,7 +107,7 @@ export default {
       this.UserName=getCookie('username');
       this.id=getCookie('userid');
       this.imgurl=getCookie('photo');
-      this.$axios.get(`http://localhost:3000/user/playlist?uid=${this.id}`).then(res=>{
+      this.$axios.get(`http://81.69.58.73:3000/user/playlist?uid=${this.id}`).then(res=>{
         // console.log(res)
         this.lis=res.data.playlist.splice(1);
         this.list=this.lis.filter(item=>
@@ -118,8 +118,8 @@ export default {
         this.lovem=res.data.playlist[0].id;
         saveCookie('lovem',this.lovem,15)
         // console.log(this.lovem)
-        //http://localhost:3000/playlist/detail?id=
-        this.$axios.get(`http://localhost:3000/playlist/detail?id=${this.lovem}`).then(resl=>{
+        //http://81.69.58.73:3000/playlist/detail?id=
+        this.$axios.get(`http://81.69.58.73:3000/playlist/detail?id=${this.lovem}`).then(resl=>{
           // console.log(resl)
           this.love=resl.data.playlist.trackIds.length
         })
