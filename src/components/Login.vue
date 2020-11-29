@@ -2,7 +2,7 @@
 <template>
   <div class='loginIn'>
     <img
-      src="../assets/logow.jpg"
+      src="../assets/logo.png"
       alt=""
       class="logow"
     >
